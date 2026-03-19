@@ -1,7 +1,7 @@
-package request
+package dto
 
-// SendMail is request parameter for send mail
-type SendMail struct {
+// SendMailRequest is request parameter for send mail
+type SendMailRequest struct {
 	ToAddress string `json:"to_address" binding:"required,email"`
 	Subject   string `json:"subject" binding:"required"`
 	Body      string `json:"body" binding:"required"`

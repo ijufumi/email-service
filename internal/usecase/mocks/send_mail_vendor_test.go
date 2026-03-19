@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	request "github.com/ijufumi/email-service/internal/app/http/request"
+	model "github.com/ijufumi/email-service/internal/domain/model"
 	mock "github.com/stretchr/testify/mock"
 )
 
@@ -13,11 +13,11 @@ type SendMailVendor struct {
 }
 
 // Send provides a mock function with given fields: contents
-func (_m *SendMailVendor) Send(contents request.SendMail) error {
+func (_m *SendMailVendor) Send(contents model.SendMailRequest) error {
 	ret := _m.Called(contents)
 
 	var r0 error
-	if rf, ok := ret.Get(0).(func(request.SendMail) error); ok {
+	if rf, ok := ret.Get(0).(func(model.SendMailRequest) error); ok {
 		r0 = rf(contents)
 	} else {
 		r0 = ret.Error(0)

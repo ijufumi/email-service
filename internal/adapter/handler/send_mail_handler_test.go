@@ -2,7 +2,7 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/ijufumi/email-service/internal/app/service/mock"
+	"github.com/ijufumi/email-service/internal/usecase/mock"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"

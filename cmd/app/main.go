@@ -3,7 +3,7 @@ package app
 import (
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
-	"github.com/ijufumi/email-service/internal/app/container"
+	"github.com/ijufumi/email-service/internal/infrastructure/container"
 )
 
 func RunApp() error {
