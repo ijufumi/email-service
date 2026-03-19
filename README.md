@@ -8,19 +8,23 @@ Basically, the package structure follows the [Standard Go Project Layout](https:
 
 ```
 .
-├── api                     # API Specification
-├── cmd                     # Entrypoint of launching app
-├── deploy                  # The code to create environment
-├── internal                # Code for internal use
-│   ├── app                 # Code for app specific
-│   │   ├── container       # Create DI container
-│   │   ├── http            # Code for API specific
-│   │   │   ├── hander      # Request handler
-│   │   │   ├── request     # Data object for reuqest
-│   │   │   └── response    # Data object for response
-│   │   └── service         # Business logic
-│   └── pkg                 # Common codes
-├── web                     # Frontend codes
+├── api                           # API Specification
+├── cmd                           # Entrypoint of launching app
+├── deploy                        # The code to create environment
+├── gen                           # Generated code
+├── internal                      # Code for internal use
+│   ├── adapter                   # Adapter layer
+│   │   └── handler               # Request handler
+│   │       └── dto               # Data Transfer Objects
+│   ├── domain                    # Domain layer
+│   │   ├── model                 # Domain models
+│   │   └── repository            # Repository interfaces
+│   ├── infrastructure            # Infrastructure layer
+│   │   ├── config                # Configuration
+│   │   ├── container             # DI container
+│   │   └── mail                  # Mail service implementations
+│   └── usecase                   # Use case layer (Business logic)
+├── web                           # Frontend codes
 ├── .env.example
 ├── docker-compose.yaml
 ├── Dockerfile
