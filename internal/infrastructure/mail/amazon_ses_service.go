@@ -6,21 +6,17 @@ import (
 	awsConfig "github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/sesv2"
 	"github.com/aws/aws-sdk-go-v2/service/sesv2/types"
-	"github.com/ijufumi/email-service/internal/app/http/request"
-	"github.com/ijufumi/email-service/internal/pkg/config"
+	"github.com/ijufumi/email-service/internal/domain/model"
+	"github.com/ijufumi/email-service/internal/domain/repository"
+	"github.com/ijufumi/email-service/internal/infrastructure/config"
 )
-
-// AmazonSESService is mail service for Amazon SES
-type AmazonSESService interface {
-	SendMailVendor
-}
 
 type amazonSESService struct {
 	config *config.Config
 }
 
 // Send allows sending mail via SES
-func (service *amazonSESService) Send(contents request.SendMail) error {
+func (service *amazonSESService) Send(contents model.SendMailRequest) error {
 	svc, err := service.createSesService()
 	if err != nil {
 		return err
@@ -63,6 +59,6 @@ func (service *amazonSESService) createSesService() (*sesv2.Client, error) {
 }
 
 // NewAmazonSESService is factory method of AmazonSESService
-func NewAmazonSESService(config *config.Config) AmazonSESService {
+func NewAmazonSESService(config *config.Config) repository.SendMailVendor {
 	return &amazonSESService{config: config}
 }

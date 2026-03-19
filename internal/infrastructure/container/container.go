@@ -1,10 +1,11 @@
 package container
 
 import (
-	"github.com/ijufumi/email-service/internal/app/http/handler"
-	"github.com/ijufumi/email-service/internal/app/service"
-	"github.com/ijufumi/email-service/internal/app/service/vendors/mail"
-	"github.com/ijufumi/email-service/internal/pkg/config"
+	"github.com/ijufumi/email-service/internal/adapter/handler"
+	"github.com/ijufumi/email-service/internal/domain/repository"
+	infraconfig "github.com/ijufumi/email-service/internal/infrastructure/config"
+	inframail "github.com/ijufumi/email-service/internal/infrastructure/mail"
+	"github.com/ijufumi/email-service/internal/usecase"
 	"go.uber.org/dig"
 )
 
@@ -20,12 +21,18 @@ type container struct {
 
 func (c *container) provide() {
 	// config
-	_ = c.container.Provide(config.Load)
+	_ = c.container.Provide(infraconfig.Load)
 
-	// service
-	_ = c.container.Provide(service.NewSendMailService)
-	_ = c.container.Provide(mail.NewAmazonSESService)
-	_ = c.container.Provide(mail.NewSendGridService)
+	// mail vendors
+	_ = c.container.Provide(func(cfg *infraconfig.Config) []repository.SendMailVendor {
+		return []repository.SendMailVendor{
+			inframail.NewAmazonSESService(cfg),
+			inframail.NewSendGridService(cfg),
+		}
+	})
+
+	// usecase
+	_ = c.container.Provide(usecase.NewSendMailService)
 
 	// handler
 	_ = c.container.Provide(handler.NewHealthHandler)
