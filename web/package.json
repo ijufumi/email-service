@@ -10,25 +10,31 @@
     "@mui/material": "^5.15.19",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.30.3"
   },
   "devDependencies": {
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.13.0",
     "@typescript-eslint/parser": "^7.13.0",
-    "eslint": "^9.4.0",
+    "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.34.2",
     "html-webpack-plugin": "^5.6.0",
     "prettier": "^3.3.2",
-    "react-devtools": "^5.2.0",
+    "react-devtools": "^7.0.1",
     "ts-loader": "^9.5.1",
     "typescript": "^5.4.5",
     "webpack": "^5.104.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4"
+    "webpack-dev-server": "^5.2.3"
   },
   "scripts": {
     "start": "npx webpack serve",
     "build": "npx webpack --mode production"
+  },
+  "overrides": {
+    "minimatch@<3.1.4": "3.1.4",
+    "minimatch@>=9.0.0 <9.0.7": "9.0.7",
+    "cross-spawn@<6.0.6": "6.0.6",
+    "got@<11.8.5": "11.8.5"
   }
 }
