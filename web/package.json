@@ -25,7 +25,7 @@
     "typescript": "^5.4.5",
     "webpack": "^5.104.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.2.3"
+    "webpack-dev-server": "^5.2.4"
   },
   "scripts": {
     "start": "npx webpack serve",
@@ -37,10 +37,14 @@
     "cross-spawn@<6.0.6": "6.0.6",
     "got@<11.8.5": "11.8.5",
     "electron": ">=39.8.5",
-    "follow-redirects": ">=1.16.0"
+    "follow-redirects": ">=1.16.0",
+    "qs": ">=6.15.2",
+    "uuid": ">=11.1.1"
   },
   "resolutions": {
     "electron": ">=39.8.5",
-    "follow-redirects": ">=1.16.0"
+    "follow-redirects": ">=1.16.0",
+    "qs": ">=6.15.2",
+    "uuid": ">=11.1.1"
   }
 }
