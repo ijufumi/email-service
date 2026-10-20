@@ -37,13 +37,13 @@
     "cross-spawn@<6.0.6": "6.0.6",
     "got@<11.8.5": "11.8.5",
     "electron": ">=39.8.5",
-    "follow-redirects": ">=1.16.0",
+    "follow-redirects": ">=1.16.1",
     "qs": ">=6.15.2",
     "uuid": ">=11.1.1"
   },
   "resolutions": {
     "electron": ">=39.8.5",
-    "follow-redirects": ">=1.16.0",
+    "follow-redirects": ">=1.16.1",
     "qs": ">=6.15.2",
     "uuid": ">=11.1.1"
   }
